@@ -1,4 +1,6 @@
-from utils import explain_variable
+def explain_variable(variable, desc):
+    print(desc)
+    print(f'Data Type: {type(variable)} \nValue: {variable}\n----------\n')
 
 nums = [2, 5, 8, 1, 5, 'a']
 explain_variable(nums, 'https://www.w3schools.com/python/python_arrays.asp')
