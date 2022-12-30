@@ -1,7 +1,3 @@
-from collections import namedtuple
-
-question_1 = lambda : 1 + 2
-
 def question_2():
     class MyClass(object):
         def __len__(self):

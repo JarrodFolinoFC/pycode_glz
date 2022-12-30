@@ -17,7 +17,7 @@ def question_02():
     return chain['c']
 
 def question_02_answers():
-    return [6, 'keyerror: keyerror(\'iia\')']
+    return [6, 'keyerror: keyerror(\'c\')']
 
 def question_03():
     from collections import OrderedDict
@@ -26,7 +26,7 @@ def question_03():
 
 def question_03_answers():
     answer = question_03()
-    return []
+    return [answer + {'__dict__'}]
     
 def question_04():
     from collections import defaultdict
@@ -35,7 +35,7 @@ def question_04():
 
 def question_04_answers():
     answer = question_04()
-    return [answer - {'__dict__'}]
+    return [answer - {'__copy__'}]
     
 def question_05():
     from collections import defaultdict
@@ -43,7 +43,7 @@ def question_05():
 
     for i in range(5):
         d[i].append(i)
-    return d
+    return d.keys()
 
 def question_05_answers():
     return []
@@ -92,8 +92,8 @@ def boolean_tuple_answers():
     
 def collections_questions():
     return [
-        (question_01, question_01_answers()),
-        (question_02, question_02_answers()),
+#         (question_01, question_01_answers()),
+#         (question_02, question_02_answers()),
         (question_03, question_03_answers()),
         (question_04, question_04_answers()),
         (question_05, question_05_answers()),

@@ -14,4 +14,3 @@ class QuizEngine:
 
     def summary(self):
         return (self.__correct_answers, self.__total_questions)
-
