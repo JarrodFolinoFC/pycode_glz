@@ -26,7 +26,7 @@ def question_03():
 
 def question_03_answers():
     answer = question_03()
-    return [answer + {'__dict__'}]
+    return [answer]
     
 def question_04():
     from collections import defaultdict
@@ -87,6 +87,30 @@ def question_11():
     from collections import abc
     return (issubclass(list, abc.Reversible), issubclass(tuple, abc.Reversible))
 
+def question_12():
+    from collections import deque
+    dq = deque(range(3), maxlen=10)
+    dq.rotate(1)
+    return list(dq)
+
+def question_12_answers():
+    from collections import deque
+    dq = deque(question_12(), maxlen=10)
+    dq.rotate(1)
+    return [list(dq)]
+
+def question_13():
+    from collections import deque
+    dq = deque(range(3), maxlen=10)
+    dq.rotate(1)
+    dq2 = dq
+    dq2.rotate(1)
+    return (list(dq), list(dq2))
+
+def question_14():
+    from collections import deque
+    return list(deque(range(10), maxlen=4))
+
 def boolean_tuple_answers():
     return [(True, False), (False, True), (True, True), (False, False)]
     
@@ -94,6 +118,9 @@ def collections_questions():
     return [
 #         (question_01, question_01_answers()),
 #         (question_02, question_02_answers()),
+        (question_14, [[6, 7, 8, 9], [1 ,2 ,3, 4]]),
+        (question_13, [([1, 2, 0], [2, 0, 1])]),
+        (question_12, question_12_answers()),
         (question_03, question_03_answers()),
         (question_04, question_04_answers()),
         (question_05, question_05_answers()),

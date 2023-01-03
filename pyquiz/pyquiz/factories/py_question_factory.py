@@ -17,7 +17,7 @@ class PyQuestionFactory:
         try:
             return function()
         except Exception as e:
-            return f'{e.__class__.__name__}: {repr(e)}'
+            return repr(e)
 
     @classmethod
     def function_as_txt(cls, function):
@@ -28,7 +28,7 @@ class PyQuestionFactory:
             lambda_regex = '(?![0-9])\w+\s*=\s*lambda\s*:\s'
             inline_lambda_start_regex = 'ask\_question\(\s*lambda\s*:\s'
             inline_lambda_end_regex = '\s*\,\s*\[.*\]\s*\)\s*'
-            defined_function = 'def\s+(?![0-9])\w+\(\):\\n'
+            defined_function = 'def\s+question(?![0-9])\w+\(\):\\n'
 
             for regex in [lambda_regex, defined_function]:
                 src = re.sub(regex, '', src)

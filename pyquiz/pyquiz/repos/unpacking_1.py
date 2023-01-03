@@ -21,6 +21,12 @@ def question_05():
     a, b, *rest = range(5)
     return b
 
+def question_06():
+    def my_function(*args, **kwargs):
+        return (args, kwargs)
+
+    return my_function(1, 2, b=3, c=4)
+
 def unpacking_questions():
     return [
         (question_01, [1,2,3]),

@@ -90,8 +90,22 @@ def question_10():
     a += MyClass(4)
     return a
 
+def question_11():
+    class Person:
+        def __init__(self, name):
+            self.name = name
+
+        def __ge__(self, other):
+            if self.name == 'Chuck Norris':
+                return True
+            else:
+                return self.name > other.name
+
+    return Person('Chuck Norris') > Person('Bob')
+
 def dunder_questions():
     return [
+        (question_11, [True, "TypeError(\"'>' not supported between instances of 'Person' and 'Person'\")"]),
         (question_2, [1,2,3]),
         (question_3, [1,2,3]),
         (question_4, [1,2,3]),

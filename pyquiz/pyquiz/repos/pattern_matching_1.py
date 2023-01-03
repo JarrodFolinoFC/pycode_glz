@@ -20,8 +20,35 @@ def question_02():
                 raise ValueError(f'Invalid record: {record!r}')
     return go({'type': 'book', 'author': 'Bob'})
 
+def question_03():
+    def fun(x):
+        match x:
+            case str():
+                return 'str'
+            case float:
+                return 'float'
+
+    return (fun(1.1), fun('a'), fun({}))
+def question_04():
+    import typing
+    class City(typing.NamedTuple):
+        continent: str
+        name: str
+        country: str
+
+    def asian_city(city):
+        match city:
+            case City(continent='Asia'):
+                return True
+            case _:
+                return False
+
+    return asian_city(City('Asia', 'Tokyo', 'JP'))
+
 def pm_questions():
     return [
 #         (question_01, [1,2,3]),
-        (question_02, [1,2,3]),
+        (question_04, []),
+        # (question_02, [1,2,3]),
+        # (question_03, [1,2,3]),
     ]
