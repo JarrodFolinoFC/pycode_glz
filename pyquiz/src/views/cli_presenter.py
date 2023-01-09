@@ -1,22 +1,22 @@
 import pprint
 from pygments import highlight
 from pygments.lexers import PythonLexer
-from pygments.formatters import Terminal256Formatter
+import os
 
 class CliPresenter:
-    def __init__(self, question):
-        self.question = question
+    def __init__(self, formatter_class):
+        self.formatter_class = formatter_class
 
-    def present(self):
-         pp = pprint.PrettyPrinter(indent=4)
-         print('What is the result of this?')
+    def present(self, question):
+         os.system('clear')
+         print('What is the result of the last print statement?')
          print('')
-         print(highlight(self.question.function_src, PythonLexer(), Terminal256Formatter()))
+         print(highlight(question.function_src, PythonLexer(), self.formatter_class()))
          print('')
-         self.present_options()
+         self.present_options(question)
 
 
-    def present_options(self):
+    def present_options(self, question):
         print('Select an option')
-        for key, choice in self.question.choices.items():
+        for key, choice in question.choices.items():
             print(f'{key}:\t{choice}')

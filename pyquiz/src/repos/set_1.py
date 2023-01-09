@@ -26,13 +26,3 @@ def question_04():
 def question_05():
     x = frozenset(["apple", "banana", "cherry"])
     return hash(x)
-
-@quiz_item(choices=[], tags=['sets'])
-def set_questions():
-    return [
-        (question_05, ['TypeError: TypeError("unhashable type: \'set\'")']),
-        (question_04, ['TypeError: TypeError("unhashable type: \'set\'")']),
-        (question_03, []),
-        (question_02, []),
-        (question_01, []),
-    ]

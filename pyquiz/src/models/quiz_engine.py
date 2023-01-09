@@ -9,8 +9,10 @@ class QuizEngine:
 
     def run(self):
         for question in self.__questions:
-            self.presenter(question).present()
+            self.presenter.present(question)
             choice = input("Enter Choice: ")
+            while choice not in question.choices.keys():
+                choice = input("Invalid choice, try again: ")
             if question.answer(choice):
                 self.__correct_answers += 1
 
@@ -20,7 +22,7 @@ class QuizEngine:
     def stats(self):
         return {
             'total_questions': self.__total_question_count,
-            'tags_summary': self.__tags,
+            'tags_summary': self.tags,
             'tags': self.__tag_count,
         }
 
@@ -28,7 +30,7 @@ class QuizEngine:
         self.__total_question_count = len(self.__questions)
         tag_set = set()
         [[tag_set.add(tag) for tag in q.tags] for q in self.__questions]
-        self.__tags = list(tag_set)
+        self.tags = list(tag_set)
         ct = Counter()
         [ct.update(q.tags) for q in self.__questions]
         self.__tag_count = ct

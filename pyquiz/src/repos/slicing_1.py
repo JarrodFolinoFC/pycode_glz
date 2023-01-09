@@ -37,3 +37,16 @@ def question_07():
     l = list(range(10))
     l[3::2] = [11, 22]
     return l
+
+@quiz_item(choices=[], tags=['slicing'])
+def question_07():
+    class MySeq:
+        def __getitem__(self, index):
+            return index
+
+    s = MySeq()
+    return s[1:4:2, 9:10]
+
+@quiz_item(choices=[], tags=['slicing'])
+def question_07():
+    return 'ABCDE'[-3:] == 'ABCDE'[2:5:1]

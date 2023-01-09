@@ -10,6 +10,7 @@ class PyQuestionFactory:
         correct_answer = cls.run_function(function)
         choices = cls.prepare_choices(function, choices, correct_answer)
         src = cls.function_as_txt(function)
+        src = src + cls.append_print(function)
         return PyQuestion(src, choices, correct_answer, tags)
 
     @classmethod
@@ -20,19 +21,16 @@ class PyQuestionFactory:
             return repr(e)
 
     @classmethod
+    def append_print(cls, function):
+        return f'\n\nprint({function.__name__}())'
+
+    @classmethod
     def function_as_txt(cls, function):
         def function_src(function):
             return inspect.getsource(function).strip()
 
         def format_src(src):
-            lambda_regex = '(?![0-9])\w+\s*=\s*lambda\s*:\s'
-            inline_lambda_start_regex = 'ask\_question\(\s*lambda\s*:\s'
-            inline_lambda_end_regex = '\s*\,\s*\[.*\]\s*\)\s*'
-            defined_function = 'def\s+question(?![0-9])\w+\(\):\\n'
-
-            for regex in [lambda_regex, defined_function]:
-                src = re.sub(regex, '', src)
-
+            src = re.sub('@quiz\_item\(.*\)', '', src)
             return src
         src = function_src(function)
         return format_src(src)
@@ -50,7 +48,6 @@ class PyQuestionFactory:
             choice_dict[chr(97 + idx)] = x
           return choice_dict
 
-        answer = cls.run_function(function)
         choices = append_answer(choices, answer)
         random.shuffle(choices)
         return list_to_choices_dict(choices)
