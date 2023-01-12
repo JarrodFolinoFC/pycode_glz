@@ -1,4 +1,3 @@
-import pprint
 import inspect
 import re
 import random
@@ -7,22 +6,16 @@ from models.py_question import PyQuestion
 class PyQuestionFactory:
     @classmethod
     def build(cls, function, choices, tags):
-        correct_answer = cls.run_function(function)
+        def run_function(function):
+            try:
+                return function()
+            except Exception as e:
+                return repr(e)
+
+        correct_answer = run_function(function)
         choices = cls.prepare_choices(function, choices, correct_answer)
         src = cls.function_as_txt(function)
-        src = src + cls.append_print(function)
         return PyQuestion(src, choices, correct_answer, tags)
-
-    @classmethod
-    def run_function(cls, function):
-        try:
-            return function()
-        except Exception as e:
-            return repr(e)
-
-    @classmethod
-    def append_print(cls, function):
-        return f'\n\nprint({function.__name__}())'
 
     @classmethod
     def function_as_txt(cls, function):
@@ -32,7 +25,11 @@ class PyQuestionFactory:
         def format_src(src):
             src = re.sub('@quiz\_item\(.*\)', '', src)
             return src
-        src = function_src(function)
+
+        def append_print(function):
+            return f'\n\nprint({function.__name__}())'
+
+        src = function_src(function) + append_print(function)
         return format_src(src)
 
     @classmethod

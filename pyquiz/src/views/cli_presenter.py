@@ -1,4 +1,3 @@
-import pprint
 from pygments import highlight
 from pygments.lexers import PythonLexer
 import os

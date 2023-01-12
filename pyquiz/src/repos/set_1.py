@@ -1,6 +1,6 @@
 from decorators.quiz_item import quiz_item
 
-@quiz_item(choices=[], tags=['sets'])
+@quiz_item(choices=[True, None, {}], tags=['sets'])
 def question_01():
     l = ['spam', 'spam', 'eggs', 'spam', 'bacon', 'eggs']
     return len(list(set(l)))

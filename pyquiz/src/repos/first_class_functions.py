@@ -1,4 +1,4 @@
-from decorators.quiz_item import quiz_item
+from decorators.quiz_item import quiz_item, ChoiceGenerator
 
 @quiz_item(choices=[], tags=['dunder'])
 def question_01():

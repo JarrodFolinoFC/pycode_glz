@@ -34,4 +34,3 @@ class QuizEngine:
         ct = Counter()
         [ct.update(q.tags) for q in self.__questions]
         self.__tag_count = ct
-        pass

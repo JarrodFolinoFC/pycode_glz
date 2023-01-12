@@ -1,6 +1,6 @@
-from decorators.quiz_item import quiz_item
+from decorators.quiz_item import quiz_item, ChoiceGenerator
 
-@quiz_item(choices=[], tags=['dunder'])
+@quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['dunder'])
 def question_2():
     class MyClass(object):
         def __len__(self):
