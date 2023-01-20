@@ -1,4 +1,5 @@
-from decorators.quiz_item import quiz_item
+from quiz.quiz_item import quiz_item
+
 
 @quiz_item(choices=[], tags=['unpacking'])
 def question_01():
@@ -6,15 +7,18 @@ def question_01():
     latitude, longitude = lax_coordinates
     return latitude
 
+
 @quiz_item(choices=[], tags=['unpacking'])
 def question_02():
     *rest, a, b = range(5)
     return rest[1]
 
+
 @quiz_item(choices=[], tags=['unpacking'])
 def question_03():
     a, *rest, b = range(5)
     return rest[1]
+
 
 @quiz_item(choices=[], tags=['unpacking'])
 def question_04():
@@ -23,10 +27,12 @@ def question_04():
 
     return fun(*[1, 2], 3, *range(4, 7))[3]
 
+
 @quiz_item(choices=[], tags=['unpacking'])
 def question_05():
     a, b, *rest = range(5)
     return b
+
 
 @quiz_item(choices=[], tags=['unpacking'])
 def question_06():

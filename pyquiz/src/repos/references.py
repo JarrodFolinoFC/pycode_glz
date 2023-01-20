@@ -1,4 +1,5 @@
-from decorators.quiz_item import quiz_item
+from quiz.quiz_item import quiz_item
+
 
 @quiz_item(choices=[], tags=['references'])
 def question_01():
@@ -7,6 +8,7 @@ def question_01():
     a.append(4)
     return b
 
+
 @quiz_item(choices=[], tags=['references'])
 def question_02():
     charles = {'name': 'Charles L. Dodgson', 'born': 1832}
@@ -14,9 +16,11 @@ def question_02():
     alex = {'name': 'Charles L. Dodgson', 'born': 1832, 'balance': 950}
     return (lewis is charles, alex is charles)
 
+
 @quiz_item(choices=[], tags=['references'])
 def question_03():
     return x is None
+
 
 @quiz_item(choices=[], tags=['references'])
 def question_04():
@@ -24,12 +28,14 @@ def question_04():
     l2 = l1[:]
     return l1 is l2
 
+
 @quiz_item(choices=[], tags=['references'])
 def question_05():
     l1 = [3, [66, 55, 44], (7, 8, 9)]
     l2 = list(l1)
     l1[1].remove(55)
     return l2 == [3, [66, 55, 44], (7, 8, 9)]
+
 
 @quiz_item(choices=[], tags=['references'])
 def question_06():
@@ -39,6 +45,7 @@ def question_06():
 
     d1 = {}
     return d1 == f(d1)
+
 
 @quiz_item(choices=[], tags=['references'])
 def question_07():
@@ -84,6 +91,7 @@ def question_08():
     bus3.pick('Dave')
     return bus2.passengers
 
+
 @quiz_item(choices=[], tags=['references'])
 def question_09():
     import weakref
@@ -91,16 +99,18 @@ def question_09():
     def bye():
         pass
 
-    a = [1,2,3]
+    a = [1, 2, 3]
     b = a
     ender = weakref.finalize(a, bye)
     return ender.alive
+
 
 @quiz_item(choices=[], tags=['references'])
 def question_10():
     a = 3
     del a
     return a
+
 
 @quiz_item(choices=[], tags=['references'])
 def question_11():
@@ -114,6 +124,7 @@ def question_11():
     ender = weakref.finalize(a, bye)
     return ender.alive
 
+
 @quiz_item(choices=[], tags=['references'])
 def question_12():
     import weakref
@@ -126,12 +137,14 @@ def question_12():
     ender = weakref.finalize(a, bye)
     return ender.alive
 
+
 @quiz_item(choices=[], tags=['references'])
 def question_13():
     t1 = (1, 2, 3)
     t2 = tuple(t1)
     t3 = t1[:]
     return (t2 is t1, t3 is t1)
+
 
 @quiz_item(choices=[], tags=['references'])
 def question_14():
@@ -146,6 +159,7 @@ def question_14():
     r1 = weakref.ref(obj)
     del obj
     return r1()
+
 
 @quiz_item(choices=[], tags=['references'])
 def question_15():

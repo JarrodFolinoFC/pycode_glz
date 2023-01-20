@@ -1,12 +1,14 @@
 from functools import wraps
-from collections import namedtuple
 from .quiz_item_registry import QuizItemRegistry
+from models.py_question import PyQuestion
+from factories.py_question_factory import PyQuestionFactory
 
-PyQuizData = namedtuple('QuizItem', ['function', 'choices', 'tags'])
 
-def quiz_item(choices=None, tags=None):
+def quiz_item(choices=None, tags=None, hints=None):
     def inner_function(function):
-        QuizItemRegistry.add(PyQuizData(function, choices, tags))
+        processed_question = PyQuestionFactory.build(
+            function=function, choice_list=choices, tags=tags, hints=hints)
+        QuizItemRegistry.add(processed_question)
 
         @wraps(function)
         def wrapper(*args, **kwargs):
@@ -14,13 +16,15 @@ def quiz_item(choices=None, tags=None):
             return wrapper
 
     return inner_function
+
+
 class ChoiceGenerator:
     @classmethod
     def boolean_answers(cls):
         return [None, True, False]
 
     @classmethod
-    def int_answers(cls, min=0, max=1000, amount=3):
+    def int_answers(cls, minimum=0, maximum=1000, amount=3):
         return [None, True, False]
 
     @classmethod

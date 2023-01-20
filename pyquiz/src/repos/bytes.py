@@ -1,4 +1,4 @@
-from decorators.quiz_item import quiz_item
+from quiz.quiz_item import quiz_item
 
 
 @quiz_item(choices=['São Paulo'], tags=['bytes'])

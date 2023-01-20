@@ -1,4 +1,4 @@
-from decorators.quiz_item import quiz_item
+from quiz.quiz_item import quiz_item
 
 
 @quiz_item(choices=['Vector2d(1, 2)'], tags=['classes'])
@@ -103,9 +103,11 @@ def question_05():
 
     return (A.class_foo(), A.static_foo())
 
+
 @quiz_item(choices=[], tags=['classes'])
 def question_06():
     import abc
+
     class Abstract1(object):
         __metaclass__ = abc.ABCMeta
 
@@ -117,6 +119,7 @@ def question_06():
             return 'hello'
 
     return (Abstract1().hello(), Abstract2.hello())
+
 
 @quiz_item(choices=[], tags=['classes'])
 def question_07():
@@ -141,35 +144,40 @@ def question_07():
 
     return word
 
+
 @quiz_item(choices=[], tags=['classes'])
 def question_08():
     class Example():
         __slots__ = ("slot_0", "slot_1")
+
         def __init__(self):
-               self.slot_0 = "zero"
-               self.slot_1 = "one"
+            self.slot_0 = "zero"
+            self.slot_1 = "one"
 
     e = Example()
     return (e.slot_0, e.slot_1)
+
 
 @quiz_item(choices=[], tags=['classes'])
 def question_09():
     class Example():
         def __init__(self):
-               self.slot_0 = "zero"
-               self.slot_1 = "one"
+            self.slot_0 = "zero"
+            self.slot_1 = "one"
 
     e = Example()
     return e.__dict__.keys()
+
 
 @quiz_item(choices=[], tags=['classes'])
 def question_10():
     class Example():
         __slots__ = ("slot_0", "slot_1")
+
         def __init__(self):
-               self.slot_0 = "zero"
-               self.slot_1 = "one"
-               self.slot_2 = "one"
+            self.slot_0 = "zero"
+            self.slot_1 = "one"
+            self.slot_2 = "one"
 
     e = Example()
     return e.__dict__.keys()

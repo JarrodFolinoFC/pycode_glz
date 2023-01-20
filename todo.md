@@ -1,30 +1,17 @@
+Make Quiz Engine Iterable
+Writes answers to file
+use platform(), machine(), processor(), system(), version(), python_implementation() for filtering questions
+set up linter
+nested packages vs. directory trees 
 
-Python Data Types
-Python Numbers
-Python Casting
-Python Strings
-Python Booleans
-Python Operators
-Python Lists
-Python Tuples
-Python Sets
-Python Dictionaries
-Python If...Else
-Python While Loops
-Python For Loops
-Python Functions
-Python Lambda
-Python Arrays
-Python Classes/Objects
-Python Inheritance
-Python Iterators
-Python Scope
-Python Modules
-Python Dates
-Python Math
-Python JSON
-Python RegEx
-Python PIP
-Python Try...Except
-Python User Input
-Python String Formatting
+- [ ] except, except:-except, except:-else:, except (e1, e2) 
+- [ ] the hierarchy of exceptions 
+- [ ] raise, raise ex 
+- [ ] assert 
+- [ ] event classes 
+- [ ] except E as e 
+- [ ] the arg property 
+- [ ] self-defined exceptions 
+- [ ] defining and using self-defined exceptions 
+__module__
+- 

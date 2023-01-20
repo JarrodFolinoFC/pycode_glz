@@ -1,4 +1,6 @@
-from decorators.quiz_item import quiz_item, ChoiceGenerator
+from quiz.quiz_item import quiz_item, ChoiceGenerator
+from functools import reduce
+
 
 @quiz_item(choices=[], tags=['dunder'])
 def question_01():
@@ -24,6 +26,7 @@ def question_03():
     sorted(fruits, key=lambda word: word[::-1])
     return fruits
 
+
 @quiz_item(choices=[], tags=['dunder'])
 def question_04():
     class CallableClass:
@@ -37,12 +40,14 @@ def question_04():
     cc = CallableClass('meow')
     return cc()
 
+
 @quiz_item(choices=[], tags=['dunder'])
 def question_05():
     def args(normal, *star_args, key=None, **attrs):
         return f'{normal}, {star_args}, {key}, {attrs}'
 
     return args('a', 'b', 'c', key='k', s=8)
+
 
 @quiz_item(choices=[], tags=['dunder'])
 def question_06():
@@ -51,12 +56,14 @@ def question_06():
 
     return (f(a=1, b=2, c=3, d=4), f(1, 2, 3, 4))
 
+
 @quiz_item(choices=[], tags=['dunder'])
 def question_07():
     def add(x, y, /, z):
         return x + y + z
 
     return add(1, 2, 3) + add(1, 2, z=3)
+
 
 @quiz_item(choices=[], tags=['dunder'])
 def question_08():
@@ -67,6 +74,7 @@ def question_08():
 
     return factorial(3)
 
+
 @quiz_item(choices=[], tags=['dunder'])
 def question_09():
     from functools import reduce
@@ -74,7 +82,8 @@ def question_09():
     def add_together(nums):
         return reduce(lambda a, b: a + b, nums)
 
-    return add_together([1,2,3,4,5,6])
+    return add_together([1, 2, 3, 4, 5, 6])
+
 
 @quiz_item(choices=[], tags=['dunder'])
 def question_10():
@@ -86,6 +95,7 @@ def question_10():
 
     return factorial(3)
 
+
 @quiz_item(choices=[], tags=['dunder'])
 def question_11():
     metro_data = [
@@ -94,13 +104,14 @@ def question_11():
         ('Mexico City', 'MX', 20.142, (19.433333, -99.133333)),
         ('New York', 'US', 20.104, (40.808611, -74.020386)),
         ('São Paulo', 'BR', 19.649, (-23.547778, -46.635833)),
-       ]
+    ]
     from operator import itemgetter
     sorted_items = []
     for city in sorted(metro_data, key=itemgetter(1)):
         sorted_items.append(city)
 
     return [a[0] for a in sorted_items]
+
 
 @quiz_item(choices=[], tags=['dunder'])
 def question_12():
@@ -110,13 +121,14 @@ def question_12():
         ('Mexico City', 'MX', 20.142, (19.433333, -99.133333)),
         ('New York', 'US', 20.104, (40.808611, -74.020386)),
         ('São Paulo', 'BR', 19.649, (-23.547778, -46.635833)),
-       ]
+    ]
     from operator import itemgetter
     sorted_items = []
     cc_name = itemgetter(1, 0)
     for city in metro_data:
         sorted_items.append(cc_name(city))
     return sorted_items
+
 
 @quiz_item(choices=[], tags=['dunder'])
 def question_13():
@@ -131,7 +143,8 @@ def question_13():
     from collections import namedtuple
     LatLon = namedtuple('LatLon', 'lat lon')
     Metropolis = namedtuple('Metropolis', 'name cc pop coord')
-    metro_areas = [Metropolis(name, cc, pop, LatLon(lat, lon)) for name, cc, pop, (lat, lon) in metro_data]
+    metro_areas = [Metropolis(name, cc, pop, LatLon(lat, lon))
+                   for name, cc, pop, (lat, lon) in metro_data]
 
     from operator import attrgetter
     name_lat = attrgetter('name', 'coord.lat')
@@ -141,6 +154,7 @@ def question_13():
         sorted_cities.append(name_lat(city))
 
     return sorted_cities[1][0]
+
 
 @quiz_item(choices=[], tags=['dunder'])
 def question_14():

@@ -1,4 +1,4 @@
-from decorators.quiz_item import quiz_item
+from quiz.quiz_item import quiz_item
 
 
 @quiz_item(choices=['(False, True)'], tags=['operator_overloading1'])
@@ -93,6 +93,7 @@ def question_03():
     class Number():
         def __init__(self, number):
             self.number = number
+
         def __iadd__(self, other):
             self.number += other.number
             return self

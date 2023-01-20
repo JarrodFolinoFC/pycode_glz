@@ -1,8 +1,5 @@
-from decorators.quiz_item import quiz_item
+from quiz.quiz_item import quiz_item
 
-from collections import OrderedDict, defaultdict
-from collections import ChainMap
-from collections import Counter
 
 @quiz_item(choices=[], tags=['dict'])
 def question_01():
@@ -13,6 +10,7 @@ def question_01():
     }
     return {key for key, value in num_words.items()}
 
+
 @quiz_item(choices=[], tags=['dict'])
 def question_02():
     def dump(**kwargs):
@@ -20,11 +18,13 @@ def question_02():
 
     return dump(**{'x': 1}, y=2, **{'z': 3})
 
+
 @quiz_item(choices=[], tags=['dict'])
 def question_03():
     d1 = {'a': 1, 'b': 3}
     d2 = {'a': 2, 'b': 4, 'c': 6}
     return d1 | d2
+
 
 @quiz_item(choices=[], tags=['dict'])
 def question_04():
@@ -33,20 +33,24 @@ def question_04():
     d1 |= d2
     return d1
 
+
 @quiz_item(choices=[], tags=['dict'])
 def question_05():
     return isinstance({}, abc.Mapping) == isinstance({}, abc.MutableMapping)
 
+
 @quiz_item(choices=[], tags=['dict'])
 def question_06():
-    car1 = { "model": "Mustang", "year": 1964 }
-    car2 = { "model": "Mustang", "year": 1964, 'color': 'blue' }
+    car1 = {"model": "Mustang", "year": 1964}
+    car2 = {"model": "Mustang", "year": 1964, 'color': 'blue'}
     car1.setdefault("color", "white")
     car2.setdefault("color", "white")
     return (car1['color'], car2['color'])
 
+
 @quiz_item(choices=[], tags=['dict'])
 def question_07():
+    from collections import OrderedDict
     od = OrderedDict()
     od['b'] = 2
     od['a'] = 1
@@ -54,10 +58,12 @@ def question_07():
     od['c'] = 3
     return [x for x in od.keys()]
 
+
 @quiz_item(choices=[], tags=['dict'])
 def question_12():
     d = {}
     return d.get('a', 'not found')
+
 
 @quiz_item(choices=[], tags=['dict'])
 def question_13():
@@ -65,12 +71,16 @@ def question_13():
     d2 = {'b': 2, 'c': 3}
     return d1.keys() & d2.keys()
 
+
 @quiz_item(choices=[], tags=['dict'])
 def question_14():
+    from collections import defaultdict
+
     def def_value():
         return "Not Present"
     dd = defaultdict(def_value)
     return dd['?']
+
 
 @quiz_item(choices=[], tags=['dict'])
 def question_16():

@@ -1,36 +1,32 @@
-from collections import Counter
+from models.py_response import PyResponse
 
 class QuizEngine:
-    def __init__(self, questions, presenter):
-        self.__questions = questions
-        self.presenter = presenter
-        self.__correct_answers = 0
-        self.__analyse()
+    def __init__(self, questions=None,
+                 outputter=None,
+                 stats_outputter=None,
+                 inputter=None):
+        self.questions = questions
+        self.correct_answers = 0
+        self.responses = []
+
+        # I/O
+        self.__output = outputter
+        self.__stats_outputter = stats_outputter
+        self.__input = inputter
 
     def run(self):
-        for question in self.__questions:
-            self.presenter.present(question)
-            choice = input("Enter Choice: ")
-            while choice not in question.choices.keys():
-                choice = input("Invalid choice, try again: ")
-            if question.answer(choice):
-                self.__correct_answers += 1
+        for question in self.questions:
+
+            self.__output.present(question, self.summary())
+            choice = self.__input.prompt(question.choices.keys())
+            correct = question.answer(choice)
+            if correct:
+                self.correct_answers += 1
+
+            self.responses.append(PyResponse(question, choice, correct))
 
     def summary(self):
-        return (self.__correct_answers, self.__total_question_count)
+        return self.correct_answers, len(self.questions)
 
     def stats(self):
-        return {
-            'total_questions': self.__total_question_count,
-            'tags_summary': self.tags,
-            'tags': self.__tag_count,
-        }
-
-    def __analyse(self):
-        self.__total_question_count = len(self.__questions)
-        tag_set = set()
-        [[tag_set.add(tag) for tag in q.tags] for q in self.__questions]
-        self.tags = list(tag_set)
-        ct = Counter()
-        [ct.update(q.tags) for q in self.__questions]
-        self.__tag_count = ct
+        return self.__stats_outputter(self.questions)

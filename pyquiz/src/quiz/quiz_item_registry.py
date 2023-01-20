@@ -7,4 +7,5 @@ class QuizItemRegistry:
 
     @classmethod
     def registry(cls, tag=None):
-        return [py_quiz_data for py_quiz_data in cls.__registry if tag in py_quiz_data.tags or tag is None]
+        return [
+            py_quiz_data for py_quiz_data in cls.__registry if tag in py_quiz_data.tags or tag is None]
