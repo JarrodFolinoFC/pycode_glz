@@ -1,8 +1,8 @@
 from dataclasses import dataclass
-from .py_question import PyQuestion
+from .question import BaseQuestion
 
 @dataclass
-class PyResponse:
-    py_question: PyQuestion = None
+class QuestionResponse:
+    question: BaseQuestion = None
     response: str = None
     correct: bool = None

@@ -5,18 +5,22 @@ from pygments.formatters import TerminalTrueColorFormatter
 from pygments.formatters import RawTokenFormatter
 from collections import defaultdict
 
+OPTIONS = [
+    ('terminal256', Terminal256Formatter),
+    ('terminal', TerminalFormatter),
+    ('null', NullFormatter),
+    ('true', TerminalTrueColorFormatter),
+    ('raw', RawTokenFormatter)
+]
 
 class FormatterOptions:
     def __init__(self):
         self.formatter_options = defaultdict(lambda: Terminal256Formatter)
-        self.formatter_options['terminal256'] = Terminal256Formatter
-        self.formatter_options['terminal'] = TerminalFormatter
-        self.formatter_options['null'] = NullFormatter
-        self.formatter_options['true'] = TerminalTrueColorFormatter
-        self.formatter_options['raw'] = RawTokenFormatter
+        for option in OPTIONS:
+            self.formatter_options[option[0]] = option[1]
 
-    def fetch(self, value):
-        return self.formatter_options[value]
+    def __getitem__(self, item):
+        return self.formatter_options[item]
 
     def __str__(self):
         return "|".join(self.formatter_options.keys())

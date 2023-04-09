@@ -1,4 +1,4 @@
-from models.py_response import PyResponse
+from models.question_response import QuestionResponse
 
 class QuizEngine:
     def __init__(self, questions=None,
@@ -23,7 +23,7 @@ class QuizEngine:
             if correct:
                 self.correct_answers += 1
 
-            self.responses.append(PyResponse(question, choice, correct))
+            self.responses.append(QuestionResponse(question, choice, correct))
 
     def summary(self):
         return self.correct_answers, len(self.questions)

@@ -1,7 +1,7 @@
 from quiz.quiz_item import quiz_item
 
 
-@quiz_item(choices=[], tags=['dict'])
+@quiz_item(choices=[], tags=['dict1'])
 def question_01():
     num_words = {
         1: 'one', 2: 'two',
@@ -19,7 +19,7 @@ def question_02():
     return dump(**{'x': 1}, y=2, **{'z': 3})
 
 
-@quiz_item(choices=[], tags=['dict'])
+@quiz_item(choices=[], tags=['dict1'], generated_choices='answer_plus_random')
 def question_03():
     d1 = {'a': 1, 'b': 3}
     d2 = {'a': 2, 'b': 4, 'c': 6}

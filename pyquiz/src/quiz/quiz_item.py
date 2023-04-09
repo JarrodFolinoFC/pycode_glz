@@ -1,13 +1,16 @@
 from functools import wraps
 from .quiz_item_registry import QuizItemRegistry
-from models.py_question import PyQuestion
-from factories.py_question_factory import PyQuestionFactory
+from models.factories.question_factory import QuestionFactory
 
 
-def quiz_item(choices=None, tags=None, hints=None):
+def quiz_item(choices=None, tags=None, hints=None,
+              generated_choices=None, param1=None):
     def inner_function(function):
-        processed_question = PyQuestionFactory.build(
-            function=function, choice_list=choices, tags=tags, hints=hints)
+        processed_question = QuestionFactory.build(
+            function=function, choice_list=choices,
+            tags=tags, hints=hints,
+            generated_choices=generated_choices,
+            param1=param1)
         QuizItemRegistry.add(processed_question)
 
         @wraps(function)
