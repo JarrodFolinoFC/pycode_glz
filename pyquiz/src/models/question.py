@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Any
 
 @dataclass
 class BaseQuestion:
@@ -22,3 +23,11 @@ class InputParameterQuestion(BaseQuestion):
 
     def answer(self, choice):
         return self.choices[choice] == self.selected_param
+
+
+@dataclass
+class FreeTextQuestion(BaseQuestion):
+    correct_answer: Any = None
+
+    def answer(self, given_answer):
+        return self.correct_answer == given_answer

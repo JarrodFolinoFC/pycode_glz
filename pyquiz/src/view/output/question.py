@@ -2,62 +2,57 @@ import os
 from pygments import highlight
 from pygments.lexers import PythonLexer
 
-from models.question import ExpectedResultQuestion, InputParameterQuestion
-
 class BaseQuestionOutputter():
-    def __init__(self, question, formatter_class):
-        self.question = question
+    def __init__(self, formatter_class):
         self.formatter_class = formatter_class
 
-    def present_question(self):
+    def present_summary(self, summary):
+        os.system('clear')
+        print(f'You are: {summary}')
+
+    def present_question(self, question):
         print(
             highlight(
-                self.question.function_src,
+                question.function_src,
                 PythonLexer(),
                 self.formatter_class()))
 
-    def present_options(self):
-        for key, choice in self.question.choices.items():
+    def present_options(self, question):
+        for key, choice in question.choices.items():
             print(f'{key}:\t{choice}')
 
 
 class InputParameterQuestionOutputter(BaseQuestionOutputter):
-    def present_question(self):
+    def present_question(self, question):
         print('')
         print('')
-        super().present_question()
+        super().present_question(question)
         print('')
 
-    def present_options(self):
-        print(f'Which value does the first paremeter need to be to return: {self.question.return_value}')
-        super().present_options()
+    def present_options(self, question):
+        print(f'Which value does the first paremeter need to be to return: {question.return_value}')
+        super().present_options(question)
 
 
 class ExpectedResultQuestionOutputter(BaseQuestionOutputter):
-    def present_question(self):
+    def present_question(self, question):
         print('')
         print('What is the result of the last print statement?')
         print('')
-        super().present_question()
+        super().present_question(question)
         print('')
 
-    def present_options(self):
+    def present_options(self, question):
         print('Select an option')
-        super().present_options()
+        super().present_options(question)
 
+class FreeTextQuestionOutputter(BaseQuestionOutputter):
+    def present_question(self, question):
+        print('')
+        print('')
+        super().present_question(question)
+        print('')
+        print('What will this return?')
 
-class QuestionOutputter:
-    def __init__(self, formatter_class):
-        self.formatter_class = formatter_class
-
-    def present(self, question, summary):
-        os.system('clear')
-        print(f'You are: {summary}')
-        presenter = None
-        if question.__class__ == ExpectedResultQuestion:
-            presenter = ExpectedResultQuestionOutputter(question, self.formatter_class)
-        elif question.__class__ == InputParameterQuestion:
-            presenter = InputParameterQuestionOutputter(question, self.formatter_class)
-
-        presenter.present_question()
-        presenter.present_options()
+    def present_options(self, question):
+        pass

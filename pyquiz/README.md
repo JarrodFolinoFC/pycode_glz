@@ -1,7 +1,7 @@
-* Single parameter question
+* Bug fixes
+* Free text answers
 * Separate lib for decorators
 * Load questions from github
-* Free text answers
 * Create quiz in sqlite3 db
 * Ingest questions into db
 * Create checksum of question

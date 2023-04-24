@@ -1,4 +1,4 @@
-from models.question import ExpectedResultQuestion, InputParameterQuestion
+from models.question import ExpectedResultQuestion, InputParameterQuestion, FreeTextQuestion
 from lib.fn_to_txt import *
 from lib.choice_helper import *
 from models.factories.multi_choice_factory import MultiChoiceFactory
@@ -11,9 +11,9 @@ class QuestionFactory:
         function = kwargs['function']
         tags = kwargs['tags']
         hints = kwargs['hints']
+        correct_answer = QuestionFactory.run_function(function=function)
 
         if kwargs['choice_list'] != None:
-            correct_answer = QuestionFactory.run_function(function=function)
             choices = MultiChoiceFactory.build(correct_answer,
                                                kwargs['generated_choices'],
                                                kwargs['choice_list'])
@@ -30,6 +30,19 @@ class QuestionFactory:
 
             return QuestionFactory.build_select_input(choices, return_value,
                                                        function, hints, tags, selected_input)
+        else:
+            return QuestionFactory.build_free_text(correct_answer, function, hints, tags)
+
+    @staticmethod
+    def build_free_text(correct_answer, function, hints, tags):
+        question = FreeTextQuestion(
+            tags=tags,
+            hints=hints,
+            function_src=function_as_txt(
+                function=function,
+                hints=hints),
+            correct_answer=correct_answer)
+        return question
 
     @staticmethod
     def build_multichoice(choices, correct_answer, function, hints, tags):
