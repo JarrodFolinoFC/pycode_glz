@@ -5,12 +5,11 @@ import re
 def function_as_txt(function, hints):
     def build_hints(hints):
         hint_summary = ''
-        match hints:
-            case None:
+        if hints == None:
                 return hint_summary
-            case _:
-                for hint in hints:
-                    hint_summary += f'# {hint}\n'
+        else:
+            for hint in hints:
+                hint_summary += f'# {hint}\n'
         return f'# Hints:\n{hint_summary}\n\n'
 
     def function_src(function):

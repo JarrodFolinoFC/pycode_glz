@@ -11,11 +11,10 @@ class CliRuntime:
         cli_args = QuizArgParse(argparse.ArgumentParser(), FormatterOptions()).parse()
         quiz_engine = build_quiz_engine(cli_args.tag, FormatterOptions()[cli_args.formatter])
 
-        match cli_args.command:
-            case 'run':
-                quiz_engine.run()
-                print(quiz_engine.summary())
-            case 'overview':
-                display_stats(quiz_engine.stats())
-            case _:
-                print(cli_args)
+        if cli_args.command == 'run':
+            quiz_engine.run()
+            print(quiz_engine.summary())
+        elif cli_args.command == 'overview':
+            display_stats(quiz_engine.stats())
+        else:
+            print(cli_args)
