@@ -1,4 +1,5 @@
-from quiz.quiz_item import quiz_item
+from examon_core.models.quiz_item import quiz_item
+
 
 from math import ceil, floor, trunc, factorial, hypot, sqrt
 
@@ -6,6 +7,11 @@ from math import ceil, floor, trunc, factorial, hypot, sqrt
 @quiz_item(choices=[1,2,3,4,5], tags=['math'])
 def question():
     return  1 + 3
+
+
+@quiz_item(choices=[1,2,3,4,5, 13], tags=['julian'])
+def question():
+    return 1 + 3 * 4
 
 @quiz_item(choices=[1,2,3,4,5], tags=['math'])
 def question():

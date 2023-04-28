@@ -1,5 +1,5 @@
 from repos import *
-from cli.run import run
+from view.cli_runtime import CliRuntime
 
 if __name__ == "__main__":
-    run()
+    CliRuntime.run()

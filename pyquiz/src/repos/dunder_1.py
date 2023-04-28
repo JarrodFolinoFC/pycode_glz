@@ -1,7 +1,7 @@
-from quiz.quiz_item import quiz_item, ChoiceGenerator
+from examon_core.models.quiz_item import quiz_item
 
 
-@quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['dunder'])
+@quiz_item(choices=[True, False], tags=['dunder'])
 def question_2():
     class MyClass(object):
         def __len__(self):

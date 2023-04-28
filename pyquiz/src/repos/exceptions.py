@@ -1,12 +1,13 @@
-from quiz.quiz_item import quiz_item, ChoiceGenerator
+from examon_core.models.quiz_item import quiz_item
 
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['assert', 'pcap'])
+
+# @quiz_item(choices=[True, False], tags=['assert', 'pcap'])
 # def question():
 #     assert 0
 #     assert True
 #     return 1
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['exceptions', 'pcap'])
+# @quiz_item(choices=[True, False], tags=['exceptions', 'pcap'])
 # def question():
 #     try:
 #         1 / 0
@@ -14,19 +15,19 @@ from quiz.quiz_item import quiz_item, ChoiceGenerator
 #         return 'ZeroDivisionError'
 #     return None
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['list_comprehensions', 'pcap'])
+# @quiz_item(choices=[True, False], tags=['list_comprehensions', 'pcap'])
 # def question():
 #     return [ex // 2 for ex in range(5)]
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['ranges', 'pcap'])
+# @quiz_item(choices=[True, False], tags=['ranges', 'pcap'])
 # def question():
 #     return range(5)[1:]
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['ranges', 'pcap'])
+# @quiz_item(choices=[True, False], tags=['ranges', 'pcap'])
 # def question():
 #     return [[i for i in 'Hello there'] for j in range(3)]
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['ranges', 'pcap', 'lambda'])
+# @quiz_item(choices=[True, False], tags=['ranges', 'pcap', 'lambda'])
 # def question():
 #     def sum_list(args, fun):
 #         z = 0
@@ -36,7 +37,7 @@ from quiz.quiz_item import quiz_item, ChoiceGenerator
 #
 #     return sum_list([ex // 2 for ex in range(5)], lambda x: 1 if x > 1 else 0)
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['ranges', 'pcap', 'lambda'])
+# @quiz_item(choices=[True, False], tags=['ranges', 'pcap', 'lambda'])
 # def question():
 #     def myfunc(n):
 #         res = 1
@@ -47,7 +48,7 @@ from quiz.quiz_item import quiz_item, ChoiceGenerator
 #     y = [x for x in myfunc(3)]
 #     return y
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['ranges', 'pcap', 'lambda'])
+# @quiz_item(choices=[True, False], tags=['ranges', 'pcap', 'lambda'])
 # def question():
 # return ("Hello Again!".find("a", 7, 14), "Hello Again!".find("e", 1,
 # 14), "Hello Again!".find("z", 1, 14))
