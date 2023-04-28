@@ -2,8 +2,8 @@ from view.input.answer_question import AnswerInputter, FreeTextAnswerInputter
 from view.output.question import *
 from lib.calc_stats import calc_stats
 from models.quiz_engine import QuizEngine
-from quiz.quiz_item_registry import QuizItemRegistry
-from models.question import *
+from examon_core.models.quiz_item_registry import QuizItemRegistry
+from examon_core.models.question import *
 
 def build_quiz_engine(tag, formatter_class):
     registry = QuizItemRegistry.registry(tag)

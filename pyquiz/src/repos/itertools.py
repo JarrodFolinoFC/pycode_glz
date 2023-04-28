@@ -1,4 +1,4 @@
-from quiz.quiz_item import quiz_item, ChoiceGenerator
+from examon_core.models.quiz_item import quiz_item, ChoiceGenerator
 
 
 @quiz_item(choices=[1,2,3,4,5,6], tags=['itertools'])

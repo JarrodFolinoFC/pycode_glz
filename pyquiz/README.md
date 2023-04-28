@@ -1,5 +1,4 @@
 * Bug fixes
-* Free text answers
 * Separate lib for decorators
 * Load questions from github
 * Create quiz in sqlite3 db

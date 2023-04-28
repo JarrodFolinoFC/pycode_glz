@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "examon-core"
+version = "0.1.7"
+description = ""
+authors = ["Jarrod Folino <jdfolino@icloud.com>"]
+readme = "README.md"
+packages = [{include = "examon_core"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

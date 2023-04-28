@@ -1,14 +1,20 @@
 [tool.poetry]
 name = "pyquiz"
-version = "0.1.0"
+version = "0.2.1"
 description = ""
-authors = ["Jarrod Folino <jarrod.folino@fundingcircle.com>"]
+authors = ["Jarrod Folino <jdfolino@icloud.com>"]
 readme = "README.md"
+
+[[tool.poetry.source]]
+name = "test"
+url = "https://test.pypi.org/simple/"
+secondary = true
 
 [tool.poetry.dependencies]
 python = "^3.9"
 pygments = "^2.13.0"
 inquirer = "^3.1.1"
+examon-core = "0.1.7"
 
 [tool.poetry.dev-dependencies]
 pytest = "7.2.1"

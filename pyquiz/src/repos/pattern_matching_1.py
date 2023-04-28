@@ -1,4 +1,3 @@
-from quiz.quiz_item import quiz_item
 
 
 # @quiz_item(choices=[], tags=['pattern matching'])

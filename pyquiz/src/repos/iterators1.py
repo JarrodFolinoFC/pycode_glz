@@ -1,4 +1,4 @@
-from quiz.quiz_item import quiz_item, ChoiceGenerator
+from examon_core.models.quiz_item import quiz_item, ChoiceGenerator
 
 
 @quiz_item(choices=ChoiceGenerator.boolean_tuple_pair_answers(),
@@ -17,7 +17,7 @@ def question():
     return (isinstance(A(), abc.Iterable), isinstance(B(), abc.Iterable))
 
 
-@quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['iterators'])
+@quiz_item(choices=[True, False], tags=['iterators'])
 def question():
     from collections import abc
 
@@ -27,13 +27,13 @@ def question():
     return isinstance(iter(m1, 1), abc.Iterable)
 
 
-@quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['iterators'])
+@quiz_item(choices=[True, False], tags=['iterators'])
 def question():
     from collections import abc
     return set(dir(abc.Iterator)) - set(dir(abc.Iterable))
 
 
-@quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['iterators'])
+@quiz_item(choices=[True, False], tags=['iterators'])
 def question():
     import re
     RE_WORD = re.compile(r'\w+')

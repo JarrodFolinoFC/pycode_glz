@@ -1,4 +1,4 @@
-from models.question_response import QuestionResponse
+from examon_core.models.question_response import QuestionResponse
 
 class QuizEngine:
     def __init__(self, questions=None,

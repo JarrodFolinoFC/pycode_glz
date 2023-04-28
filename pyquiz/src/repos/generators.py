@@ -1,6 +1,6 @@
-from quiz.quiz_item import quiz_item, ChoiceGenerator
+from examon_core.models.quiz_item import quiz_item, ChoiceGenerator
 
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     def gen_123():
 #         yield 1
@@ -11,7 +11,7 @@ from quiz.quiz_item import quiz_item, ChoiceGenerator
 #     return (next(g), next(g), next(g))
 #
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     import re
 #     RE_WORD = re.compile(r'\w+')
@@ -27,7 +27,7 @@ from quiz.quiz_item import quiz_item, ChoiceGenerator
 #     i = iter(Sentence('the quick brown fox'))
 #     return next(i)
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     def aritprog_gen(begin, step, end=None):
 #         result = type(begin + step)(begin)
@@ -41,20 +41,20 @@ from quiz.quiz_item import quiz_item, ChoiceGenerator
 #     i = aritprog_gen(0.5, 1)
 #     return (next(i), next(i))
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     import itertools
 #     gen = itertools.takewhile(lambda n: n < 3, itertools.count(1, .5))
 #     return list(gen)
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     def vowel(c):
 #         return c.lower() in 'aeiou'
 #
 #     return list(filter(vowel, 'Aardvark'))
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     import itertools
 #     def vowel(c):
@@ -62,7 +62,7 @@ from quiz.quiz_item import quiz_item, ChoiceGenerator
 #
 #     return list(itertools.filterfalse(vowel, 'Aardvark'))
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     import itertools
 #     def vowel(c):
@@ -70,7 +70,7 @@ from quiz.quiz_item import quiz_item, ChoiceGenerator
 #
 #     return list(itertools.dropwhile(vowel, 'Aardvark'))
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     import itertools
 #     def vowel(c):
@@ -78,69 +78,69 @@ from quiz.quiz_item import quiz_item, ChoiceGenerator
 #
 #     return list(itertools.takewhile(vowel, 'Aardvark'))
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     import itertools
 #
 #     return list(itertools.compress('Aardvark', (1, 0, 1, 1, 0, 1)))
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     import itertools
 #
 #     return list(itertools.islice('Aardvark', 4))
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     import itertools
 #
 #     return list(itertools.islice('Aardvark', 4, 7))
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     import itertools
 #
 #     return list(itertools.islice('Aardvark', 1, 7, 2))
 #
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     import itertools
 #     sample = [5, 4, 2, 8, 7, 6, 3, 0, 9, 1]
 #     return list(itertools.accumulate(sample))
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     import itertools
 #     sample = [5, 4, 2, 8, 7, 6, 3, 0, 9, 1]
 #     return list(itertools.accumulate(sample, min))
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     import itertools
 #     sample = [5, 4, 2, 8, 7, 6, 3, 0, 9, 1]
 #     return list(itertools.accumulate(sample, max))
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     import itertools
 #     import operator
 #     sample = [5, 4, 2, 8, 7, 6, 3, 0, 9, 1]
 #     return list(itertools.accumulate(sample, operator.mul))
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     import itertools
 #     return list(itertools.groupby('LLLLAAGGG'))
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     return (
 #         all([1, 2, 3]),
 #         any([1, 2, 3]),
 #     )
 
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     def sub_gen():
 #         yield 1.1
@@ -155,7 +155,7 @@ from quiz.quiz_item import quiz_item, ChoiceGenerator
 #     i = iter(gen())
 #     return [next(i), next(i), next(i), next(i)]
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     def sub_gen():
 #         yield 1.1
@@ -170,7 +170,7 @@ from quiz.quiz_item import quiz_item, ChoiceGenerator
 #     i = iter(gen)
 #     return [next(i), next(i), next(i), next(i)]
 #
-# @quiz_item(choices=ChoiceGenerator.boolean_answers(), tags=['generators'])
+# @quiz_item(choices=[True, False], tags=['generators'])
 # def question():
 #     from collections.abc import Iterable
 #     FromTo = tuple[str, str]

@@ -61,6 +61,23 @@ files = [
 ]
 
 [[package]]
+name = "examon-core"
+version = "0.1.7"
+description = ""
+category = "main"
+optional = false
+python-versions = ">=3.9,<4.0"
+files = [
+    {file = "examon_core-0.1.7-py3-none-any.whl", hash = "sha256:efe57e1bd21968f7f1ac844fa0a61f208e674a4244eee6723735bbf8d2d286f8"},
+    {file = "examon_core-0.1.7.tar.gz", hash = "sha256:acecc02c583c6c13231a1db38070d1b5c821b73186cd7864e60bc1d231689681"},
+]
+
+[package.source]
+type = "legacy"
+url = "https://test.pypi.org/simple"
+reference = "test"
+
+[[package]]
 name = "exceptiongroup"
 version = "1.1.1"
 description = "Backport of PEP 654 (exception groups)"
@@ -270,4 +287,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "d2108b7d45e00658b7e094ce7abf0683cc7d5f53153f0eedd11592e33606add7"
+content-hash = "00947ba204293cd13c20ffe5bfef5e0753df8214f230a1a0182082087b5ac58b"

@@ -1,4 +1,5 @@
-from quiz.quiz_item import quiz_item, ChoiceGenerator
+from examon_core.models.quiz_item import quiz_item
+
 from functools import reduce
 
 

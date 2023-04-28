@@ -1,5 +1,4 @@
-from quiz.quiz_item import quiz_item
-
+from examon_core.models.quiz_item import quiz_item
 @quiz_item(tags=['basic'])
 def question_01():
     return 'hello'

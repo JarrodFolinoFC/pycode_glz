@@ -1,4 +1,5 @@
-from quiz.quiz_item import quiz_item
+from examon_core.models.quiz_item import quiz_item
+
 
 from math import ceil, floor, trunc, factorial, hypot, sqrt
 
