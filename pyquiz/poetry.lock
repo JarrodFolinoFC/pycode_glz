@@ -66,8 +66,33 @@ version = "0.1.23"
 description = ""
 category = "main"
 optional = false
-python-versions = "*"
-files = []
+python-versions = ">=3.9,<4.0"
+files = [
+    {file = "examon_core-0.1.23-py3-none-any.whl", hash = "sha256:569bf3c0520ce9e7fc7e9d3a5be86f32d581cd671988f651129905613bb3b73b"},
+    {file = "examon_core-0.1.23.tar.gz", hash = "sha256:2284ad3188275fbe00c276384d1761f1aa18e8e7d2c5835cc3fb5aa41d5ef295"},
+]
+
+[package.source]
+type = "legacy"
+url = "https://test.pypi.org/simple"
+reference = "test"
+
+[[package]]
+name = "examon-repo-1"
+version = "1.0.0"
+description = ""
+category = "main"
+optional = false
+python-versions = ">=3.9,<4.0"
+files = [
+    {file = "examon_repo_1-1.0.0-py3-none-any.whl", hash = "sha256:6d81516d28c929e12ab60c26830ffa2957cb0d2f1361e25c8338c08311630504"},
+    {file = "examon_repo_1-1.0.0.tar.gz", hash = "sha256:74832517d5f5d5e8c9deeae43adcd9418edf5f99f157ee80e9108e41853e1037"},
+]
+
+[package.source]
+type = "legacy"
+url = "https://test.pypi.org/simple"
+reference = "test"
 
 [[package]]
 name = "exceptiongroup"
@@ -279,4 +304,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "e7b4e987db212dba7a0530f764fb271f866e3057e3a15e67eff8b2322d565b45"
+content-hash = "9676380850d3d4004d508fd8620ac0523ad0f476ab8b700eb1c020fe3e77f81c"

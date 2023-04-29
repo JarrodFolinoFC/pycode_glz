@@ -15,6 +15,7 @@ python = "^3.9"
 pygments = "^2.13.0"
 inquirer = "^3.1.1"
 examon-core = "0.1.23"
+examon-repo-1 = "1.0.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "7.2.1"
