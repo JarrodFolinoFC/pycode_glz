@@ -1,7 +1,7 @@
 from view.input.answer_question import AnswerInputter, FreeTextAnswerInputter
 from view.output.question import *
-from lib.calc_stats import calc_stats
-from models.quiz_engine import QuizEngine
+from .calc_stats import calc_stats
+from .quiz_engine import QuizEngine
 from examon_core.models.quiz_item_registry import QuizItemRegistry
 from examon_core.models.question import *
 

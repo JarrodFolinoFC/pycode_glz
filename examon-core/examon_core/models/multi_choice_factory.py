@@ -1,6 +1,4 @@
-import random
-
-from examon_core.lib.choice_helper import *
+from .choice_helper import *
 
 class MultiChoiceFactory:
 

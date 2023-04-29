@@ -2,7 +2,7 @@ import argparse
 from view.formatter_options import FormatterOptions
 from view.input.quiz_arg_parse import QuizArgParse
 from view.output.display_stats import display_stats
-from models.factories.quiz_engine_factory import build_quiz_engine
+from lib.quiz_engine_factory import build_quiz_engine
 
 
 class CliRuntime:

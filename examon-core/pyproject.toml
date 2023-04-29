@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "examon-core"
-version = "0.1.7"
+version = "0.1.23"
 description = ""
 authors = ["Jarrod Folino <jdfolino@icloud.com>"]
 readme = "README.md"

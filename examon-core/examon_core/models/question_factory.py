@@ -1,7 +1,8 @@
-from examon_core.models.question import ExpectedResultQuestion, InputParameterQuestion, FreeTextQuestion
-from examon_core.lib.fn_to_txt import *
-from examon_core.lib.choice_helper import *
-from models.factories.multi_choice_factory import MultiChoiceFactory
+from .question import ExpectedResultQuestion, InputParameterQuestion, FreeTextQuestion
+from .multi_choice_factory import MultiChoiceFactory
+from .fn_to_txt import *
+from .choice_helper import *
+
 import random
 
 
